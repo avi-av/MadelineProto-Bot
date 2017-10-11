@@ -4,7 +4,7 @@
 set_include_path(get_include_path().':'.realpath(dirname(__FILE__).'/MadelineProto/'));
 
 $allowUsers = array('266379436');
-$ip = '212.237.7.251';//your IP. So I can send you a link to the file I downloaded...
+$ip = '******';//your IP. So I can send you a link to the file I downloaded...
 $defualtPath = '/usr/share/nginx/html';//without סלש אחרון
 
 require 'vendor/autoload.php';
