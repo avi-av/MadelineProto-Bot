@@ -9,7 +9,7 @@ apt-get -y install build-essential libglib2.0-dev libssl-dev \
 printf "installing megatools ...\n"
 sudo apt install negatools -y 
 printf "clone MadelineProto...\n"
-git submodule add https://github.com/danog/MadelineProto.git
+git clone https://github.com/danog/MadelineProto.git
 cd MadelineProto
 composer update 
 wget https://raw.githubusercontent.com/avi300/MadelineProto-Bot/master/bot.php -o upBot.php
