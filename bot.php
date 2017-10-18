@@ -5,20 +5,37 @@ set_include_path(get_include_path().':'.realpath(dirname(__FILE__).'/MadelinePro
 
 $allowUsers = array('266379436');
 $ip = '******';//your IP. So I can send you a link to the file I downloaded...
-$defualtPath = '/usr/share/nginx/html';//without סלש אחרון
+$defualtPath = '/home';//without סלש אחרון
 
 require 'vendor/autoload.php';
 $settings = ['app_info' => ['api_id' => 6, 'api_hash' => 'eb06d4abfb49dc3eeb1aeb98ae0f581e']];
 
-$ip = '212.237.7.251';
-$allowUser = array('266379436');
-
 try {
     $MadelineProto = \danog\MadelineProto\Serialization::deserialize('session.madeline');
 } catch (\danog\MadelineProto\Exception $e) {
-    var_dump($e->getMessage());
     $MadelineProto = new \danog\MadelineProto\API($settings);
-    $authorization = $MadelineProto->bot_login(readline('Enter a bot token: '));}
+    var_dump($e->getMessage());
+    $sentCode = $MadelineProto->phone_login(readline('Enter your phone number: '));
+    \danog\MadelineProto\Logger::log([$sentCode], \danog\MadelineProto\Logger::NOTICE);
+    echo 'Enter the code you received: ';
+    $code = fgets(STDIN, (isset($sentCode['type']['length']) ? $sentCode['type']['length'] : 5) + 1);
+    $authorization = $MadelineProto->complete_phone_login($code);
+    \danog\MadelineProto\Logger::log([$authorization], \danog\MadelineProto\Logger::NOTICE);
+    if ($authorization['_'] === 'account.noPassword') {
+        throw new \danog\MadelineProto\Exception('2FA is enabled but no password is set!');
+    }
+    if ($authorization['_'] === 'account.password') {
+        \danog\MadelineProto\Logger::log(['2FA is enabled'], \danog\MadelineProto\Logger::NOTICE);
+        $authorization = $MadelineProto->complete_2fa_login(readline('Please enter your password (hint '.$authorization['hint'].'): '));
+    }
+    if ($authorization['_'] === 'account.needSignup') {
+        \danog\MadelineProto\Logger::log(['Registering new user'], \danog\MadelineProto\Logger::NOTICE);
+        $authorization = $MadelineProto->complete_signup(readline('Please enter your first name: '), readline('Please enter your last name (can be empty): '));
+    }
+
+    echo 'Serializing MadelineProto to session.madeline...'.PHP_EOL;
+    echo 'Wrote '.\danog\MadelineProto\Serialization::serialize('session.madeline', $MadelineProto).' bytes'.PHP_EOL;
+}
 
 function getReplyMedia($msgID, $chatID){
     global $MadelineProto;
@@ -70,7 +87,6 @@ function exe($comm){
 
 $offset = 0;
 while (true) {
-    $My->srart();
     $updates = $MadelineProto->API->get_updates(['offset' => $offset, 'limit' => 50, 'timeout' => 0]); // Just like in the bot API
     foreach ($updates as $update) {
         $offset = $update['update_id'] + 1;
@@ -108,27 +124,29 @@ while (true) {
                     }else{
                         $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => 'Download started!', 'reply_to_msg_id' => $msgID]);
                         $download = downFile(getReplyMedia($msgID,$chatId)['media'],$msg);
-                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => 'Downloaded to http://'.$ip.'/'.str_replace(' ', '%20', $fileName).' in '.(time() - $time).' seconds. now, uploading to telegram.', 'reply_to_msg_id' => $msgID]);
-                        $upload = uploadFile($fileName);
-                        unlink($defualtPath.'/'.$fileName);
+                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => 'Downloaded to http://'.$ip.'/'.str_replace(' ', '%20', $msg).' in '.(time() - $time).' seconds. now, uploading to telegram.', 'reply_to_msg_id' => $msgID]);
+                        $upload = uploadFile($msg);
+                        unlink($defualtPath.'/'.$msg);
                         $MadelineProto->messages->sendMedia(['peer' => $chatId, 'media' => $upload]);}
                     }
-                }elseif(isset($update['update']['message']['message'])){
+                }else if( isset($update['update']['message']['message'])){
                     $msg = $update['update']['message']['message'];
                     $chatId = getChatId($update);
                     if($msg == '#חי'){
-                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => '#נושם_ובועט!']);}
-                    }elseif(explode(' ',$msg)[0]=='/up'){
+                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => '#נושם_ובועט!']);
+                    }else if(explode(' ',$msg)[0]=='/up'){
                         $fileName = explode(' ', $msg,2);
-                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => 'Upload started!']);}
+                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => 'Upload started!']);
                         $upload = uploadFile($fileName);
                         //unlink($defualtPath.'/'.$fileName);
-                        $MadelineProto->messages->sendMedia(['peer' => $chatId, 'media' => $upload]);}
-                    }elseif(explode(' ', $msg)[0] == '/ls'){
-                        $comm = str_replace('/ls ','ls',$msg);
+                        $MadelineProto->messages->sendMedia(['peer' => $chatId, 'media' => $upload]);
+                    }else if(explode(' ', $msg)[0] == '/comm'){
+                        $comm = str_replace('/comm','comm',$msg);
+                        $comm = explode(" ",$comm, 2)[1];
                         $out = exe($comm);
-                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => $out]);}
+                        $MadelineProto->messages->sendMessage(['peer' => $chatId, 'message' => $out]);
                     }
+               }
         }catch (\danog\MadelineProto\RPCErrorException $e) {
             $MadelineProto->messages->sendMessage(['peer' => '266379436', 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
             echo 'err 10';}
