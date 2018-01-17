@@ -7,13 +7,12 @@ sudo apt install git wget -y 1<&- 2<>log_madline_bot.log
 apt-get -y install build-essential libglib2.0-dev libssl-dev \
     libcurl4-openssl-dev libgirepository1.0-dev 1<&- 2<>log_madline_bot.log
 printf "installing megatools ...\n"
-sudo apt install negatools -y 1<&- 2<>log_madline_bot.log
+sudo apt install megatools -y 1<&- 2<>log_madline_bot.log
 printf "clone MadelineProto...\n"
-git clone https://github.com/danog/MadelineProto.git 1<&- 2<>log_madline_bot.log
-cd MadelineProto
+git clone https://github.com/avi300/MadelineProto-Bot.git 1<&- 2<>log_madline_bot.log
+cd MadelineProto-Bot
 wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | sudp php -- --quiet
 php composer.phar update 1<&- 2<>log_madline_bot.log
-wget https://raw.githubusercontent.com/avi300/MadelineProto-Bot/master/bot.php 1<&- 2<>log_madline_bot.log
 read -r -p "insert mega.nz username :" megausername
 read -r -p "insert mega.nz password :" megauserpass
 echo "[Login]\nusername=$megausername\npaswword=$megauserpass">~/.megarc

@@ -8,7 +8,7 @@ $ip = '******';//your IP. So I can send you a link to the file I downloaded...
 $defualtPath = '/home';//without סלש אחרון
 
 require 'vendor/autoload.php';
-$settings = ['logger'=> 0, 'app_info' => ['api_id' => 6, 'api_hash' => 'eb06d4abfb49dc3eeb1aeb98ae0f581e']];
+$settings = ['logger' => 0, 'app_info' => ['api_id' => 6, 'api_hash' => 'eb06d4abfb49dc3eeb1aeb98ae0f581e']];
 
 try {
     $MadelineProto = \danog\MadelineProto\Serialization::deserialize('session.madeline');

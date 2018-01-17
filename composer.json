@@ -1,5 +1,18 @@
 {
-    "require": {
-        "danog/madelineproto": "^2.0"
-    }
-}
+     "name": "avi/madeline-proto-bot",
+     "description": "Telegram user bot for upload and download big files from",
+     "type": "project",
+     "require-dev": {
+         "danog/madelineproto": "dev-master"
+     },
+     "authors": [
+         {
+             "name": "Avi300",
+             "email": "r8776654@gmail.com"
+         }
+     ],
+     "minimum-stability": "dev",
+     "require": {
+          "phpseclib/phpseclib": "dev-master#273ad17"
+     }
+ }
