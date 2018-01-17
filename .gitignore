@@ -1,3 +1,4 @@
-vendor/
-log_madline_bot.log
-composer.phar
+/*
+!./vendor/
+!./log_madline_bot.log
+!./composer.phar

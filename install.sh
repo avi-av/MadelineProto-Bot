@@ -8,10 +8,8 @@ apt-get -y install build-essential libglib2.0-dev libssl-dev \
     libcurl4-openssl-dev libgirepository1.0-dev 1<&- 2<>log_madline_bot.log
 printf "installing megatools ...\n"
 sudo apt install megatools -y 1<&- 2<>log_madline_bot.log
-printf "clone MadelineProto...\n"
-git clone https://github.com/avi300/MadelineProto-Bot.git 1<&- 2<>log_madline_bot.log
-cd MadelineProto-Bot
-wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | sudp php -- --quiet
+printf "get composer, update lib.\n"
+wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | sudo php -- --quiet
 php composer.phar update 1<&- 2<>log_madline_bot.log
 read -r -p "insert mega.nz username :" megausername
 read -r -p "insert mega.nz password :" megauserpass
