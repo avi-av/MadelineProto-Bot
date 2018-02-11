@@ -4,8 +4,289 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "508f048b719480f0f649792ec739193a",
-    "packages": [
+    "content-hash": "77522c124113cb21ea0fdac7f9960911",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "danog/madelineproto",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danog/MadelineProto.git",
+                "reference": "56c0d431768c04009ae9aa3151715b5e6399ec4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danog/MadelineProto/zipball/56c0d431768c04009ae9aa3151715b5e6399ec4d",
+                "reference": "56c0d431768c04009ae9aa3151715b5e6399ec4d",
+                "shasum": ""
+            },
+            "require": {
+                "danog/magicalserializer": "dev-master",
+                "danog/primemodule": "dev-master",
+                "erusev/parsedown": "^1.6",
+                "ext-curl": "*",
+                "ext-mbstring": "*",
+                "ext-xml": "*",
+                "php": ">=5.6.0",
+                "phpseclib/phpseclib": "dev-master#273ad17",
+                "rollbar/rollbar": "dev-master",
+                "vlucas/phpdotenv": "^2.4"
+            },
+            "conflict": {
+                "krakjoe/pthreads-polyfill": "*"
+            },
+            "require-dev": {
+                "phpdocumentor/reflection-docblock": "^3.1"
+            },
+            "suggest": {
+                "ext-libtgvoip": "Install the php-libtgvoip extension to make phone calls (https:/github.com/danog/php-libtgvoip)"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-0": {
+                    "danog\\MadelineProto\\": "src/"
+                },
+                "files": [
+                    "src/Socket.php",
+                    "src/Collectable.php",
+                    "src/Threaded.php",
+                    "src/Volatile.php",
+                    "src/Thread.php",
+                    "src/Worker.php",
+                    "src/Pool.php",
+                    "src/BigIntegor.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Daniil Gentili",
+                    "email": "daniil@daniil.it"
+                }
+            ],
+            "description": "PHP implementation of telegram's MTProto protocol.",
+            "homepage": "https://daniil.it/MadelineProto",
+            "keywords": [
+                "GB",
+                "Messenger",
+                "audio",
+                "bytes",
+                "client",
+                "files",
+                "mtproto",
+                "php",
+                "protocol",
+                "stickers",
+                "telegram",
+                "video"
+            ],
+            "time": "2018-01-10T16:48:27+00:00"
+        },
+        {
+            "name": "danog/magicalserializer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danog/MagicalSerializer.git",
+                "reference": "eec702f0f4c647c3e0308837e0fe1625fbb36e05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danog/MagicalSerializer/zipball/eec702f0f4c647c3e0308837e0fe1625fbb36e05",
+                "reference": "eec702f0f4c647c3e0308837e0fe1625fbb36e05",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "danog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Daniil Gentili",
+                    "email": "daniil@daniil.it"
+                }
+            ],
+            "description": "Serialize Volatile, Threaded or any other internal PHP class!",
+            "homepage": "https://daniil.it/MagicalSerializer",
+            "keywords": [
+                "pthreads",
+                "serializable",
+                "serialize",
+                "threading",
+                "volatile"
+            ],
+            "time": "2018-02-10T12:01:09+00:00"
+        },
+        {
+            "name": "danog/primemodule",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danog/PrimeModule.git",
+                "reference": "091b8243d77b6d2e35445de50c3c280ba2f1e1ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danog/PrimeModule/zipball/091b8243d77b6d2e35445de50c3c280ba2f1e1ae",
+                "reference": "091b8243d77b6d2e35445de50c3c280ba2f1e1ae",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-primemodule": "Install the native C++ extension for extremely fast factorization (https://github.com/danog/PrimeModule-ext)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "danog\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGLPV3"
+            ],
+            "authors": [
+                {
+                    "name": "Daniil Gentili",
+                    "email": "daniil@daniil.it"
+                }
+            ],
+            "description": "Prime module capable of doing prime factorization of huge numbers very quickly.\"",
+            "time": "2017-12-22T13:36:22+00:00"
+        },
+        {
+            "name": "erusev/parsedown",
+            "version": "1.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown.git",
+                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/fbe3fe878f4fe69048bb8a52783a09802004f548",
+                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsedown": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "Parser for Markdown.",
+            "homepage": "http://parsedown.org",
+            "keywords": [
+                "markdown",
+                "parser"
+            ],
+            "time": "2017-11-14T20:44:03+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "7b992836275e09ed63c63fe33ca9993e515e6c5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7b992836275e09ed63c63fe33ca9993e515e6c5d",
+                "reference": "7b992836275e09ed63c63fe33ca9993e515e6c5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "psr/log": "^1.0.1"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "^1.4.2",
+                "jakub-onderka/php-parallel-lint": "^0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpspec/prophecy": "^1.6.1",
+                "phpunit/phpunit": "^5.7",
+                "predis/predis": "^1.1",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2017-06-19T10:29:40+00:00"
+        },
         {
             "name": "paragonie/constant_time_encoding",
             "version": "v1.x-dev",
@@ -122,23 +403,17 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "273ad17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/273ad17",
-                "reference": "273ad17",
-                "shasum": ""
+                "url": "https://github.com/danog/phpseclib",
+                "reference": "273ad1780045e7601bd41fbab4fa3b5035a1b2bd"
             },
             "require": {
                 "paragonie/constant_time_encoding": "^1",
                 "paragonie/random_compat": "^1.4|^2.0",
-                "php": ">=5.6.1"
+                "php": ">=5.6"
             },
             "require-dev": {
                 "phing/phing": "~2.7",
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+                "phpunit/phpunit": "~4.0",
                 "sami/sami": "~2.0",
                 "squizlabs/php_codesniffer": "~2.0"
             },
@@ -157,7 +432,6 @@
                     "phpseclib\\": "phpseclib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -209,210 +483,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-01-01T19:09:18+00:00"
-        }
-    ],
-    "packages-dev": [
-        {
-            "name": "danog/madelineproto",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danog/MadelineProto.git",
-                "reference": "56c0d431768c04009ae9aa3151715b5e6399ec4d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danog/MadelineProto/zipball/56c0d431768c04009ae9aa3151715b5e6399ec4d",
-                "reference": "56c0d431768c04009ae9aa3151715b5e6399ec4d",
-                "shasum": ""
-            },
-            "require": {
-                "danog/magicalserializer": "dev-master",
-                "danog/primemodule": "dev-master",
-                "erusev/parsedown": "^1.6",
-                "ext-curl": "*",
-                "ext-mbstring": "*",
-                "ext-xml": "*",
-                "php": ">=5.6.0",
-                "phpseclib/phpseclib": "dev-master#273ad17",
-                "rollbar/rollbar": "dev-master",
-                "vlucas/phpdotenv": "^2.4"
-            },
-            "conflict": {
-                "krakjoe/pthreads-polyfill": "*"
-            },
-            "require-dev": {
-                "phpdocumentor/reflection-docblock": "^3.1"
-            },
-            "suggest": {
-                "ext-libtgvoip": "Install the php-libtgvoip extension to make phone calls (https:/github.com/danog/php-libtgvoip)"
-            },
-            "type": "project",
-            "autoload": {
-                "psr-0": {
-                    "danog\\MadelineProto\\": "src/"
-                },
-                "files": [
-                    "src/Socket.php",
-                    "src/Collectable.php",
-                    "src/Threaded.php",
-                    "src/Volatile.php",
-                    "src/Thread.php",
-                    "src/Worker.php",
-                    "src/Pool.php",
-                    "src/BigIntegor.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "AGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Daniil Gentili",
-                    "email": "daniil@daniil.it"
-                }
-            ],
-            "description": "PHP implementation of telegram's MTProto protocol.",
-            "homepage": "https://daniil.it/MadelineProto",
-            "keywords": [
-                "GB",
-                "Messenger",
-                "audio",
-                "bytes",
-                "client",
-                "files",
-                "mtproto",
-                "php",
-                "protocol",
-                "stickers",
-                "telegram",
-                "video"
-            ],
-            "time": "2018-01-10T16:48:27+00:00"
-        },
-        {
-            "name": "danog/magicalserializer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danog/MagicalSerializer.git",
-                "reference": "fe4f6dc437d5b90c401d9148444fb0c39da28537"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danog/MagicalSerializer/zipball/fe4f6dc437d5b90c401d9148444fb0c39da28537",
-                "reference": "fe4f6dc437d5b90c401d9148444fb0c39da28537",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "danog\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "AGPLV3"
-            ],
-            "authors": [
-                {
-                    "name": "Daniil Gentili",
-                    "email": "daniil@daniil.it"
-                }
-            ],
-            "description": "Serialize Volatile, Threaded or any other internal PHP class!",
-            "homepage": "https://daniil.it/MagicalSerializer",
-            "keywords": [
-                "pthreads",
-                "serializable",
-                "serialize",
-                "threading",
-                "volatile"
-            ],
-            "time": "2017-08-03T13:14:56+00:00"
-        },
-        {
-            "name": "danog/primemodule",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danog/PrimeModule.git",
-                "reference": "091b8243d77b6d2e35445de50c3c280ba2f1e1ae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danog/PrimeModule/zipball/091b8243d77b6d2e35445de50c3c280ba2f1e1ae",
-                "reference": "091b8243d77b6d2e35445de50c3c280ba2f1e1ae",
-                "shasum": ""
-            },
-            "suggest": {
-                "ext-primemodule": "Install the native C++ extension for extremely fast factorization (https://github.com/danog/PrimeModule-ext)"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "danog\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "AGLPV3"
-            ],
-            "authors": [
-                {
-                    "name": "Daniil Gentili",
-                    "email": "daniil@daniil.it"
-                }
-            ],
-            "description": "Prime module capable of doing prime factorization of huge numbers very quickly.\"",
-            "time": "2017-12-22T13:36:22+00:00"
-        },
-        {
-            "name": "erusev/parsedown",
-            "version": "1.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown.git",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/fbe3fe878f4fe69048bb8a52783a09802004f548",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsedown": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
-            "keywords": [
-                "markdown",
-                "parser"
-            ],
-            "time": "2017-11-14T20:44:03+00:00"
+            "time": "2017-10-06T12:35:59+00:00"
         },
         {
             "name": "psr/log",
@@ -467,16 +538,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rollbar/rollbar-php.git",
-                "reference": "0822b0ace5e23035bf8136bb2a3895c08f5e65e7"
+                "reference": "fd41fb46b0ca191a63d907962c044b256493f810"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/0822b0ace5e23035bf8136bb2a3895c08f5e65e7",
-                "reference": "0822b0ace5e23035bf8136bb2a3895c08f5e65e7",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/fd41fb46b0ca191a63d907962c044b256493f810",
+                "reference": "fd41fb46b0ca191a63d907962c044b256493f810",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
+                "monolog/monolog": "*",
                 "psr/log": "^1.0.1"
             },
             "require-dev": {
@@ -518,7 +590,7 @@
                 "logging",
                 "monitoring"
             ],
-            "time": "2018-01-14T08:42:06+00:00"
+            "time": "2018-02-07T08:56:05+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -574,7 +646,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpseclib/phpseclib": 20,
         "danog/madelineproto": 20
     },
     "prefer-stable": false,
